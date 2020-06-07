@@ -4,13 +4,15 @@
   "description": "IPL1 VISULIZATION",
   "main": "index.js",
   "scripts": {
-    "ipl1": "node index.js",
-    "start": "http-server"
+    "ipl1": "node index.js"
   },
   "author": "Arjun Garg",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "csvtojson": "^2.0.10",
-    "http-server": "^0.12.3"
+    "express": "^4.17.1",
+    "http-server": "^0.12.3",
+    "https": "^1.0.0"
   }
 }

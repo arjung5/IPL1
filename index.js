@@ -1,3 +1,4 @@
+const express = require('express');
 const fs = require("fs");
 const csv=require('csvtojson');
 const matchesplayedperyear=require('./ipl/matchesplayedperyear');
@@ -9,6 +10,11 @@ const Matches_File_Path="./csv_data/matches.csv";
 const Deliveries_File_Path="./csv_data/deliveries.csv";
 const JSON_OUTPUT_FILE_PATH = "./public/data.json";
 const JSON_OUTPUT_FILE = "./public/dataa.json";
+const JSON_out="./public/dataaa.json";
+const Dataa=require("./public/dataa.json");
+const app=express();
+app.use(express.static('public'));
+app.use(express.urlencoded());
 function main(){
     csv()
     .fromFile(Matches_File_Path)
@@ -43,3 +49,20 @@ function savematchesplayedperyear(result,result1,result2,result3,result4,result5
     });
   }
 main();
+var finalans={arlkjdsd:"sabndasd"};
+app.get('/create',function(req,res){
+  // console.log(req.query);
+  var year=req.query.year;
+  console.log(year);
+   finalans=(Dataa["extraruns"][year]);
+   console.log(finalans);
+   res.send(finalans);
+})
+app.listen(8080,function(err){
+  if(err)
+  {
+    return 
+  }
+  console.log('server is up');
+  return;
+})
